@@ -1,0 +1,15 @@
+{% extends '@RecBundle/Calendar/toRec.html.twig' %}
+
+{% block selList %}
+    <div class="col-xs-12">
+        <h3>Услуга</h3>
+        {% for srv in servList %}
+            <a href="{% if spec and not dt|default(false) %} {{ path('toRecSelDate',{'serv':srv.id,'spec':spec.id}) }} {% elseif spec and dt|default(false) %} {{ path('toRecSelClient',{'serv':srv.id,'spec':spec.id,'dt':dt,'tm':tm}) }} {% else %} {{ path('toRecSpecWithServ',{'serv':srv.id}) }} {% endif %}">
+                <div class="col-xs-12 col-sm-8 col-lg-7 boxAbs recEl servListEl">
+                    {{ srv.name }}
+                    <span class="glyphicon glyphicon-check selIn pull-right"></span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

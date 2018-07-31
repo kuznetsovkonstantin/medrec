@@ -1,0 +1,65 @@
+.servEl {
+    border-radius: 4px;
+}
+
+.servImg {
+    height: 200px;
+    background: #CAEAFB;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+
+.servBod {
+    padding: 10px;
+    font-size: 17px;
+    height: 70px;
+}
+
+.servName {
+    padding: 1px 10px;
+}
+
+.btnRec {
+    margin-top: -10px;
+}
+
+.servPrice {
+    font-size: 17px;
+    padding: 0 10px;
+}
+
+.servTag {
+    background: #f2f6fa;
+    padding: 10px 5px 0;
+    font-size: 16px;
+    height: 130px;
+}
+
+.addServ {
+    height: 400px;
+    font-size: 50px;
+}
+
+.addServ span {
+    padding: 30px;
+    margin: auto;
+    border: 1px dashed;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btnEdit {
+    font-size: 20px;
+    padding: 6px;
+}
+
+.btnREcServ .rSpan {
+    padding-left: 7px;
+    font-size: 16px;
+}
+
+.mTop {
+    margin-top : -45px ;
+}

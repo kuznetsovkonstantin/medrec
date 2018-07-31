@@ -1,0 +1,22 @@
+{% extends '@RecBundle/Calendar/toRec.html.twig' %}
+
+{% block selList %}
+    <div class="col-xs-12">
+        <h3>Время приема</h3>
+        <div class="row">
+
+            {% for tm in freeTimes %}
+                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+                    <a href="{{ path('toRecSelClient',{'spec':spec.id,'serv':serv.id,'dt':dt,'tm':tm}) }}">
+                        <div class="col-xs-12 boxAbs timeVar text-center">
+                            {{ tm }}
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

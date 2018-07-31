@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/usl.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/doc.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Calendar/clndr.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="row top20">
+        <div class="col-xs-12 visible-xs">
+            <a href="{{ path('toRecEm') }}">
+                <div id="toRec" class="col-xs-12 boxAbs text-center">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span id="mL">Записаться на прием</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="sreen1" class="row top20">
+        <div class="col-md-7 col-sm-12 rw">
+            {% include '@RecBundle/Serv/servShort.html.twig' with {'dopCl':'uslLg', 'serv':servs[0],'url':servsImg} %}
+
+        </div>
+        <div class="col-md-5 col-sm-12 rw">
+            {% include '@RecBundle/Serv/servShort.html.twig' with {'dopCl':'uslSm', 'serv':servs[1],'url':servsImg} %}
+            {% include '@RecBundle/Serv/servShort.html.twig' with {'dopCl':'uslSm top20', 'serv':servs[2],'url':servsImg} %}
+        </div>
+
+        <div class="row">
+            <div class="shMore col-md-12 text-center bshadow">
+                <a href="{{ path('serv') }}"><button class="btn btn-primary">Посмотреть все услуги</button></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="screen2" class="row top20">
+        <div id="doctors">
+
+            {% set cnt = 0 %}
+            {% for sp in specs %}
+                {% set cnt = cnt + 1 %}
+                {% include '@RecBundle/Spec/short.html.twig' with {'sp':sp,'url':specsImg,'cnt':cnt} %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="shMore col-md-12 text-center bshadow">
+            <a href="{{ path('spec') }}"><button class="btn btn-primary">Наши специалисты</button></a>
+        </div>
+    </div>
+
+    <div class="row top20">
+        {{ render(controller('RecBundle:Calendar:getClndr')) }}
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

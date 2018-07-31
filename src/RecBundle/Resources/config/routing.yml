@@ -1,0 +1,94 @@
+rec_homepage:
+    path:     /
+    defaults: { _controller: RecBundle:Default:index }
+
+serv:
+    path:     /services
+    defaults: { _controller: RecBundle:Serv:showList }
+
+servAdd:
+    path:     /services/add
+    defaults: { _controller: RecBundle:Serv:addEdit }
+
+servEdit:
+    path:     /services/edit/{servId}
+    defaults: { _controller: RecBundle:Serv:addEdit }
+
+servDel:
+    path:     /services/delete/{servId}
+    defaults: { _controller: RecBundle:Serv:del }
+
+spec:
+    path:     /specialists
+    defaults: { _controller: RecBundle:Spec:showList }
+
+specEdit:
+    path:     /specialists/edit/{specId}
+    defaults: { _controller: RecBundle:Spec:addEdit }
+
+specAdd:
+    path:     /specialists/add
+    defaults: { _controller: RecBundle:Spec:addEdit }
+
+specDel:
+    path:     /specialists/delete/{specId}
+    defaults: { _controller: RecBundle:Spec:del }
+
+pdays:
+    path:     /pdays
+    defaults: { _controller: RecBundle:Calendar:show }
+
+pdaysDay:
+    path:     /pdays/day/{day}
+    defaults: { _controller: RecBundle:Calendar:day }
+
+toRecEm:
+    path:     /toRec
+    defaults: { _controller: RecBundle:Serv:getSevListRec }
+
+toRecServWithSpec:
+    path:     /toRec/{spec}
+    defaults: { _controller: RecBundle:Serv:getSevListRec }
+
+toRecServWithAllData:
+    path:     /toRec/selserv/{spec}/{dt}/{tm}
+    defaults: { _controller: RecBundle:Serv:getSevListRec }
+
+toRecSpecWithServ:
+    path:     /toRec/selspec/{serv}
+    defaults: { _controller: RecBundle:Spec:getSpecListRec }
+
+toRecSelDate:
+    path:     /toRec/seldate/{serv}/{spec}
+    defaults: { _controller: RecBundle:Calendar:toRecCl }
+
+toRecSelDateTime:
+    path:     /toRec/seltime/{serv}/{spec}/{dt}
+    defaults: { _controller: RecBundle:Calendar:toRecDay }
+
+toRecSelClient:
+    path:     /toRec/selclient/{serv}/{spec}/{dt}/{tm}
+    defaults: { _controller: RecBundle:Client:clientInfoRec }
+
+recFinal:
+    path:     /toRec/result/{rid}
+    defaults: { _controller: RecBundle:Calendar:result }
+
+toRecSrv:
+    path:     /toRec/{serv}
+    defaults: { _controller: RecBundle:Calendar:toRec }
+
+toRecSpc:
+    path:     /toRec/{serv}/{spec}
+    defaults: { _controller: RecBundle:Calendar:toRec }
+
+contacts:
+    path:     /contacts
+    defaults: { _controller: RecBundle:Contacts:show }
+
+auth:
+    path:     /auth
+    defaults: { _controller: RecBundle:Auth:login }
+
+logout:
+    path: /logout

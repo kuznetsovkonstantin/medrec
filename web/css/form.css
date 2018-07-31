@@ -1,0 +1,85 @@
+#formBack {
+    background: rgba(0,0,0,0.01);
+    padding: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.imgFormView img {
+    width: 250px;
+}
+
+.imgFormView .glyphicon-trash {
+    position: absolute;
+    margin: -1px 0 0 215px;
+    font-size: 17px;
+    padding: 9px;
+    color: red;
+    background: rgba(255,255,255,0.7);
+    border-radius: 0 4px;
+    cursor: pointer;
+}
+
+.errForm {
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.errForm ul {
+    padding: 8px 25px;
+    margin-bottom: 0;
+}
+
+form .table {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0;
+}
+
+form .table th {
+    text-align: center;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+
+.glyphicon.glyphicon-trash {
+    color:red;
+    cursor: pointer;
+}
+
+.glyphicon.glyphicon-plus-sign {
+    color:green;
+    font-size: 18px;
+}
+
+.addBlockBut {
+    width: 27px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: green;
+    color: #fff;
+    font-size: 15px;
+}
+
+.flashSucess {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.delBtn {
+    margin: 0 10px;
+}
+
+.delBtn span.glyphicon.glyphicon-trash {
+    color:#fff;
+    font-size: 19px;
+    padding: 0 10px;
+}
+
+table tr.nothover:hover {
+    background: inherit;
+}

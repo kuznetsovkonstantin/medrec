@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Запись на прием{% endblock %}</title>
+
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/base.css') }}" rel="stylesheet">
+
+        {% block stylesheets %}{% endblock %}
+
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/json-master/src/jquery.json.js') }}"></script>
+        <script src="{{ asset('js/base.js') }}"></script>
+        <script src="{{ asset('js/im/dist/jquery.inputmask.bundle.js') }}"></script>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="basecont" class="col-md-10 col-md-offset-1 col-sm-12">
+                <div id="headerrow" class="bshadow hidden-xs">
+                    <div id="logo" class="pull-left">
+                        <a href="/"><strong>Остеопат.ру</strong></a>
+                    </div>
+                    <div id="phone" class="pull-right">
+                        <h3>+7 (789) 456-45-69<br><small>круглосуточно и без выходных</small></h3>
+                    </div>
+                </div>
+
+                <div id="headerRowXs" class="row visible-xs bshadow">
+                    <div class="col-xs-4">
+                        <button active="0" id="btnMenu" class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span></button>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <div id="logoXs"><a href="/"><strong>Остеопат.ру</strong></a></div>
+                    </div>
+
+                    <a href="{{ path('toRecEm') }}">
+                        <div class="col-xs-4 text-right">
+                            <button id="btnRecXs" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span class="glyphicon glyphicon-user"></span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+
+                {{ render(controller('RecBundle:Menu:getMenu')) }}
+
+                {% block nav %}{% endblock %}
+                {% block body %}{% endblock %}
+                {% block javascripts %}{% endblock %}
+
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+.servTr {
+    cursor: pointer;
+}
+
+.servTr[dis="1"] {
+    background: rgba(0,0,0,0.02);
+    cursor: not-allowed;
+    color: rgba(0,0,0,0.4);
+}
+
+.servTr[dis="1"]:hover {
+    background: rgba(0,0,0,0.02);
+}
+
+.servTr[active="1"] {
+    background-color: #dff0d8;
+}

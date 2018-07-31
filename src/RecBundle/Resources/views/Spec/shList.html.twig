@@ -1,0 +1,15 @@
+{% extends '@RecBundle/Calendar/toRec.html.twig' %}
+
+{% block selList %}
+    <div class="col-xs-12">
+        <h3>Специалист</h3>
+        {% for spc in specList %}
+            <a href="{{ path('toRecSelDate',{'serv':serv.id,'spec':spc.id}) }}">
+                <div class="col-xs-12 col-sm-8 col-lg-7 boxAbs recEl servListEl">
+                    {{ spc.name }}
+                    <span class="glyphicon glyphicon-check selIn pull-right"></span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

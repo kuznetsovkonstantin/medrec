@@ -1,0 +1,34 @@
+<div class="col-xs-12">
+    <div class="col-xs-12 boxAbs clndr bot20">
+        <div class="col-xs-12 hhDays"></div>
+
+        {% set cntR = 1 %}
+        {% for cnt,dt in arrDates %}
+        {% if dt|date('j') == 1 and cnt > 0 %}
+    </div>
+    <div class="col-xs-12 boxAbs clndr bot20">
+        <div class="col-xs-12 hhDays"></div>
+        {% set cntR = 1 %}
+        {% endif %}
+
+        <a href="{% if loc == 'day' %}{{ path('pdaysDay',{'day': dt|date('d.m.Y')}) }}{% elseif loc == 'dRec' %}{{ path('toRecSelDateTime',{'serv':serv,'spec':spec,'dt':dt|date('d.m.Y')}) }}{% endif %}">
+            <div {% if dt|date('d.m.Y') in arrDis %} dis="1" {% endif %} class="dtEl col-xs-4 col-sm-3 col-md-2 {% if cntR%6 == 0 %} nBordLg {% endif %} {% if cntR%4 == 0 %} nBordSm {% endif %} {% if cntR%3 == 0 %} nBordXs {% endif %}" >
+                <div class="col-xs-12 clHead">
+
+                    {% if dt|date('j') == 1 or cnt==0 %}
+                        <span class="mntName" >{{ arrMnt[dt|date('n')] }}</span>
+                    {% endif %}
+                    <span class="dayName pull-right" weekend="{% if dt|date('w') in [0,6] %}1{% else %}0{% endif %}">{{ arrDNum[dt|date('w')] }}</span>
+                </div>
+                <div class="col-xs-12 dtBody text-center">
+                    {{ dt|date('d') }}
+                </div>
+            </div>
+        </a>
+
+        {% set cntR = cntR + 1 %}
+
+        {% endfor %}
+
+    </div>
+</div>

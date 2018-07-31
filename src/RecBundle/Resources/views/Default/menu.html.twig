@@ -1,0 +1,27 @@
+<div id="menu" class="row bshadow hidden-xs">
+    <div id="basemenu" class="col-md-7 col-sm-7">
+        {% for mn in menu %}
+            <a href="{{ path(mn.path) }}"><div class="menuEl">{{ mn.name }}</div></a>
+        {% endfor %}
+    </div>
+    <div class="col-md-5 col-sm-5 text-right">
+        <a href="{{ path('toRecEm') }}">
+            <button id="btRec" class="btn btn-warning">Записаться на прием</button>
+        </a>
+        {% include '@RecBundle/Default/loginbutton.html.twig' %}
+    </div>
+</div>
+
+<div id="verticalMenu" class="hide">
+    <ul class="nav nav-pills nav-stacked bshadow">
+        {% for mn in menu %}
+            <li><a href="{{ path(mn.path) }}">{{ mn.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <div id="menuSubInf">
+        <div id="phone" class="pull-left">
+            <h3>+7 (789) 456-45-69<br><small>круглосуточно и без выходных</small></h3>
+        </div>
+        {% include '@RecBundle/Default/loginbutton.html.twig' with {'float':'pull-right'} %}
+    </div>
+</div>

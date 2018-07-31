@@ -1,0 +1,29 @@
+#authDv {
+    padding: 10px 15px 15px 15px;
+    margin-top: 25px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.01);
+}
+
+#logInForm {
+    width: 350px;
+    padding-top: 60px;
+}
+
+#logInForm button[type="submit"]{
+    width: 115px;
+    font-size: 16px;
+}
+
+#hOfAuth {
+    font-size: 19px;
+    padding: 0 0 10px 0;
+}
+
+#err {
+    border-radius: 4px;
+    margin: 15px 0 10px;
+    padding: 10px;
+    color: red;
+}

@@ -1,0 +1,62 @@
+.spec {
+    padding: 0;
+    border-radius: 4px;
+}
+
+.spec .foto {
+    background-image: url(/img/docf.jpg);
+    background-color: rgba(0,0,0,0.05);
+    height: 320px;
+    background-size: cover;
+    background-position: center top;
+    border-radius: 4px 0 0 4px;
+}
+
+.specServBl {
+    padding: 11px 15px;
+}
+
+.specServName {
+    background: #f2f6fa;
+    padding: 4px 5px;
+    margin: 0 0 6px;
+    border-radius: 4px;
+    box-shadow:  0 1px 1px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
+}
+
+.specName {
+    padding-bottom: 1px;
+}
+
+.dopFl {
+    height: 320px;
+    border-radius: 0 4px 4px 0;
+}
+
+.btnRecSpec {
+    margin-top: 275px;
+}
+
+.btnRecSpec .rSpan {
+    padding-left: 7px;
+    font-size: 16px;
+}
+
+.btnEdit {
+    font-size: 20px;
+    padding: 6px;
+    margin: 10px 0 0 -34px;
+}
+
+.addspec {
+    border-radius: 4px;
+    padding: 10px 0;
+    font-size: 23px;
+}
+
+.addspec span {
+    padding: 10px 20px;
+    border: 1px dashed;
+    border-radius: 10px;
+    cursor: pointer;
+}

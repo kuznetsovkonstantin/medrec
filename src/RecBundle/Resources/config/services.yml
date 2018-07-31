@@ -1,0 +1,19 @@
+services:
+#    rec.example:
+#        class: RecBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    file.manager:
+        class: RecBundle\Services\FileManager
+
+    serv.manager:
+        class: RecBundle\Services\ServManager
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    spec.manager:
+        class: RecBundle\Services\SpecManager
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    clndr.manager:
+        class: RecBundle\Services\CalendrManager
+        arguments: ["@doctrine.orm.entity_manager"]

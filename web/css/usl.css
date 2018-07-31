@@ -1,0 +1,42 @@
+.rw {
+    margin-bottom: 20px;
+    height: 380px;
+}
+
+
+.usl {
+    background: #CAEAFB;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    transition: all 0.3s;
+    color:#fff;
+}
+
+
+.usl:hover {
+    opacity: 0.9;
+}
+
+.uslSm {
+    height: 180px;
+}
+
+.uslLg {
+    height: 380px;
+}
+
+.shMore {
+    padding-bottom: 20px;
+}
+
+.nameUsl {
+    color:#fff;
+    display:inline-block;
+}
+
+.bodUsl {
+    font-size: 16px;
+    margin-top: 15px;
+}

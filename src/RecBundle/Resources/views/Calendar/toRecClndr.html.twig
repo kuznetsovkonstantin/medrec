@@ -1,0 +1,10 @@
+{% extends '@RecBundle/Calendar/toRec.html.twig' %}
+
+{% block selList %}
+    <div class="col-xs-12">
+        <h3>Дата приема</h3>
+        <div class="row">
+            {{ render(controller('RecBundle:Calendar:getClndr',{'spec':spec.id,'serv':serv.id,'loc':'dRec'})) }}
+        </div>
+    </div>
+{% endblock %}

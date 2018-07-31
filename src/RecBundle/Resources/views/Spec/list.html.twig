@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/Spec/list.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block nav %}
+    <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li class="active">Специалисты</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+    <div class="row top20">
+        <div class="col-xs-12">
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('specAdd') }}">
+                    <div class="col-xs-12 boxAbs bot20 addSpec text-center">
+                        <span class="glyphicon glyphicon-plus alert-success"></span>
+                    </div>
+                </a>
+            {% endif %}
+
+            {% for sp in specs %}
+                <div class="col-xs-12 spec boxAbs bot20">
+                    <div class="col-xs-12 col-sm-4 col-lg-3 foto text-center" style="background-image: url({% if sp.img  %}{{ asset(specsImg~sp.img) }}{% else %}{{ asset('img/empphoto.png') }}{% endif %})">
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('specEdit',{'specId':sp.id}) }}">
+                                <button title="Редактировать" class="btn btn-default pull-right btnEdit">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </a>
+                        {% endif %}
+
+                        <a href="{{ path('toRecServWithSpec',{'spec':sp.id}) }}">
+                            <button class="btn btn-success btnRecSpec">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="rSpan">записаться</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-lg-8">
+                        <div class="col-sm-12 text-center bshadow specName">
+                            <h4>{{ sp.name }}</h4>
+                            <p class="text-left">
+                                {{ sp.body }}
+                            </p>
+                        </div>
+                        <div class="col-sm-12 specServBl">
+                            {% for spserv in sp.serv %}
+                                <div class="specServName">{{ spserv.name }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="dopFl col-lg-1 visible-lg bg-success"></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

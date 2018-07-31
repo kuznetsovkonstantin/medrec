@@ -1,0 +1,13 @@
+<div class="col-md-12 usl {{ dopCl }}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url({{ asset(url~serv.img) }})">
+    <div class="nameUsl">
+        <h3>{{ serv.name }}</h3>
+        <div class="bodUsl">
+            <p>{{ serv.body|raw }}</p>
+            <ul>
+                {% for tg in serv.tags %}
+                    <li>{{ tg.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

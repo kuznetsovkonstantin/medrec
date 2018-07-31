@@ -1,0 +1,98 @@
+.clndr {
+    padding: 0px;
+    border-radius: 4px;
+}
+
+.dtEl {
+    height: 150px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    cursor: pointer;
+}
+
+.dtEl:hover {
+    background: #E9F5E4;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.clHead {
+    padding: 4px 6px;
+}
+
+.mntName {
+    color: #0682dc;
+    font-weight: bold;
+}
+
+.dayName {
+    font-weight: bold;
+}
+
+.dayName[weekend="1"] {
+    color: red;
+}
+
+.dayName[weekend="0"] {
+    color: green;
+}
+
+.dtBody {
+    height: 121px;
+    font-size: 50px;
+    padding-top: 19px;
+    color: rgba(0,0,0,0.45);
+}
+
+.clndrRazd {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.hhDays {
+    background: rgba(0,0,0,0.04);
+    height: 20px;
+    box-shadow: 0 -1px 1px rgba(0,0,0,0.08);
+    border-radius: 4px 4px 0 0;
+}
+
+.dtEl[dis="1"] {
+    background: rgba(0,0,0,0.005);
+    cursor: default;
+}
+
+.dtEl[dis="1"] .dayName,.dtEl[dis="1"] .dtBody  {
+    color: rgba(0,0,0,0.2);
+}
+
+@media (min-width: 990px) {
+    .dtEl.nBordLg {
+        border-right: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .dtEl.nBordSm {
+        border-right: none;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 767px)  {
+    .dtEl.nBordXs {
+        border-right: none;
+        box-shadow: none;
+    }
+
+    .dtEl {
+        height: 120px;
+    }
+
+    .dtBody {
+        height: 92px;
+        font-size: 40px;
+        padding-top: 13px;
+    }
+}

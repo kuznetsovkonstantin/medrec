@@ -1,0 +1,3 @@
+<a href="{% if is_granted('IS_AUTHENTICATED_FULLY') %} {{ path('logout') }} {% else %} {{ path('auth') }} {% endif %}">
+    <button class="login btn btn-default {{ float|default('') }}"><span class="glyphicon glyphicon-log-{% if is_granted('IS_AUTHENTICATED_FULLY') %}out{% else %}in{% endif %}"></span></button>
+</a>

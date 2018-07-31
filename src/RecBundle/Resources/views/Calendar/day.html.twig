@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/Calendar/clndr.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block nav %}
+    <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li><a href="{{ path('pdays') }}">Приемные дни</a></li>
+        <li class="active">{{ day }}</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <style>
+        .specName {
+            font-size: 18px;
+            padding: 0 0 5px;
+        }
+
+        .dayEl {
+            border-radius: 4px;
+            padding: 0;
+        }
+
+        .hDayEl {
+            font-size: 15px;
+            padding: 5px;
+            background: rgba(0,0,0,0.05);
+            font-weight: bold;
+        }
+
+        .tmStr {
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.17);
+        }
+
+        .tmVl {
+            box-shadow: 1px 0 0 rgba(0, 0, 0, 0.17);
+        }
+
+
+        .notVacan {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .tmStr:hover {
+            background: #E9F5E4;
+            border-top: 1px solid rgba(0, 0, 0, 0.17);
+        }
+
+        .tmStr[nVac="1"] {
+            background: inherit;
+        }
+    </style>
+
+    <div class="row top20">
+
+    {% for sp in specs %}
+        <div class="col-md-6 col-xs-12 bot20">
+
+            <div class="col-xs-12 specName">{{ sp.name }}</div>
+            <div class="col-xs-12 boxAbs dayEl">
+                <div class="col-xs-12 hDayEl  text-center">{{ day }}</div>
+
+                {% for tm in arrTime %}
+
+                    {% if tm in arrNVac[sp.id] %}
+                        {% set nVac = true %}
+                    {% else %}
+                        {% set nVac = false %}
+                    {% endif %}
+
+
+                    <a href="{% if nVac %}#{% else %}{{ path('toRecServWithAllData',{'spec':sp.id,'dt':day,'tm':tm}) }}{% endif %}">
+                        <div class="col-xs-12 tmStr text-center" nVac="{{ nVac|number_format }}">
+                            <div class="col-xs-3 tmVl">{{ tm }}</div>
+                            <div class="col-xs-9">
+                                {% if nVac %}
+                                    <span class="notVacan">занято</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    {% endfor %}
+
+    </div>
+
+{% endblock %}

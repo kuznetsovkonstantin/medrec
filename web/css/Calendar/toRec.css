@@ -1,0 +1,43 @@
+.recEl {
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.specListEl {
+    height: 150px;
+}
+
+.selIn {
+    font-size: 25px;
+    margin-top: -4px;
+}
+
+.remSel {
+    margin: 3px 3px -17px 0;
+    color: red;
+}
+
+.selElView {
+    border-radius: 4px;
+    padding: 0;
+}
+
+.screenView {
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px 0 0 4px;
+}
+
+.selVl {
+    height: 60px;
+    padding: 3px;
+}
+
+.timeVar {
+    padding: 10px 0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}

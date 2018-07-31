@@ -1,0 +1,31 @@
+<div class="modal fade" id="{{ modalId }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Услуги</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr class="nothover">
+                        <th>№</th>
+                        <th>Наименование</th>
+                    </tr>
+                    {% set cnt = 0 %}
+                    {% for srv in serv %}
+                        {% set cnt = cnt + 1 %}
+                        <tr class="servTr" sid="{{ srv.id }}" dis="0">
+                            <td class="text-center">{{ cnt }}</td>
+                            <td class="servNameTb">{{ srv.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button id="{{ btnId }}" type="button" class="btn btn-primary">Добавить</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

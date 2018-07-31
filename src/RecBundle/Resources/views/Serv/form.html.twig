@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/form.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block nav %}
+    <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li><a href="{{ path('serv') }}">Услуги</a></li>
+        <li class="active">{% if servId|default(false) %}Редактировать{% else %}Добавить{% endif %} услугу</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+<div class="row bot20 top20">
+    <div class="col-xs-12">
+        <div id="formBack" class="col-xs-12">
+            <div class="row">
+
+                <div class="col-lg-7 col-md-10 col-sm-12">
+                    {{ form_start(srvForm) }}
+
+                    <div class="col-xs-12">
+                        <div class="errForm bg-danger">
+                            {{ form_errors(srvForm) }}
+                            {{ form_errors(srvForm.name) }}
+                            {{ form_errors(srvForm.price) }}
+                            {{ form_errors(srvForm.body) }}
+                            {{ form_errors(srvForm.img) }}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        {% for message in app.flashes('errors') %}
+                            <p class="flashSucess bg-danger">{{ message }}</p>
+                        {% endfor %}
+
+                        {% for message in app.flashes('success') %}
+                            <p class="flashSucess bg-success">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9 form-group">
+                        {{ form_label(srvForm.name,'Наименование') }}
+                        {{ form_widget(srvForm.name, { 'attr': {'class':'form-control'} }) }}
+                    </div>
+                    <div class="col-xs-12 col-sm-3 form-group">
+                        {{ form_label(srvForm.price,'Стоимость') }}
+                        {{ form_widget(srvForm.price, { 'attr': {'class':'form-control'} }) }}
+                    </div>
+
+                    <div class="col-xs-12 form-group">
+                        {{ form_label(srvForm.body,'Описание') }}
+                        {{ form_widget(srvForm.body, { 'attr': {'class':'form-control'} }) }}
+                    </div>
+
+                    <div class="col-xs-12 form-group"  >
+                        <table id="tagsTbl" class="table table-hover text-center" data-prototype="{{ form_widget(srvForm.tags.vars.prototype)|e('html_attr') }}">
+                            <tr class="nothover"><th>№</th><th>Тег</th><th style="width: 60px;"><div id="addBlockBut" class="addBlockBut" data-toggle="tooltip" data-placement="left" title="добавить тег"><span id="addNewTag" class="glyphicon glyphicon-plus"></span></div></th></tr>
+                            {% set cnt = 0 %}
+                            {% for tag in srvForm.tags %}
+                                {% set cnt = cnt+1 %}
+                                <tr class="tagEl">
+                                    <td>{{ cnt }}</td>
+                                    <td>{{ form_widget(tag.name, { 'attr': {'class':'form-control'} }) }}</td>
+                                    <td><span data-toggle="tooltip" data-placement="left" title="удалить тег" class="delTag glyphicon glyphicon-trash"></span></td>
+                                </tr>
+                            {% else %}
+                                <tr class="noneTags"><td colspan="3">Теги не добавлены</td></tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <div id="imgFormWidget" class="col-xs-12 form-group {% if not reqfile %}hidden{% endif %}">
+                        {{ form_label(srvForm.img,'Изображение') }}
+                        {{ form_widget(srvForm.img,{'required':reqfile}) }}
+                    </div>
+
+                    {% if not reqfile %}
+                        <div id="imgFormView" class="col-xs-12 imgFormView">
+                            <span id="delImg" class="glyphicon glyphicon-trash" data-container="body" data-toggle="popover" data-placement="right" data-content="Для изменения изображения услуги удалите старое и добавте новое изображение" data-trigger="hover"></span>
+                            <img src="{{ asset('img/servs/'~oldFilename) }}" class="img-responsive img-rounded">
+                        </div>
+                    {% endif %}
+
+                    <div class="col-xs-12">
+                        <div class="checkbox">
+                            <label>
+                                {{ form_widget(srvForm.top) }} показать на главной
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <div class="checkbox">
+                            <label>
+                                {{ form_widget(srvForm.big) }} показать первой
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 form-group">
+                        {{ form_widget(srvForm.save, {'label': 'Сохранить', 'attr': {'class':'btn btn-primary'} }) }}
+
+                        {% if servId %}
+                            <button data-toggle="modal" data-target="#modalDel" id="delServAtten" type="button" class="btn btn-danger delBtn" data-toggle="tooltip" data-placement="right" title="удалить услугу"><span class="glyphicon glyphicon-trash"></span></button>
+                        {% endif %}
+                    </div>
+
+                    {{ form_end(srvForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if servId %}
+    {% include '@RecBundle/Default/delModal.html.twig' with {'id':'modalDel','name':'услугу','link' : path('servDel',{'servId':servId})} %}
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/form.js') }}"></script>
+    <script src="{{ asset('js/Serv/add.js') }}"></script>
+{% endblock %}

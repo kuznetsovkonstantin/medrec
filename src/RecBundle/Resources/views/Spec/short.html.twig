@@ -1,0 +1,14 @@
+<div class="col-lg-6 col-md-12 {% if cnt > 2  %} visible-lg {% endif %}">
+        <div class="docEl">
+            <div class="col-sm-6 col-lg-5 h100 hidden-xs">
+                <div class="foto h100">
+                    <img class="img-responsive img-rounded" src="{% if sp.img  %}{{ asset(specsImg~sp.img) }}{% else %}{{ asset('img/empphoto.png') }}{% endif %}">
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-7">
+                <h4>{{ sp.name }}</h4>
+                <p>{{ sp.body }}</p>
+            </div>
+        </div>
+
+</div>

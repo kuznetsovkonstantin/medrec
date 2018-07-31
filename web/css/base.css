@@ -1,0 +1,189 @@
+body {
+    background: #f5f6f7;
+}
+
+#basecont {
+    min-height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    -moz-box-shadow: 0 0 10px #adaeaf;
+    -webkit-box-shadow: 0 0 10px #adaeaf;
+    box-shadow: 0 0 10px #adaeaf;
+    padding: 0 25px;
+}
+
+#logo {
+    font-size: 24px;
+    margin-top: 26px;
+    width: 200px;
+    color: #274896;
+}
+
+#logo a,#logoXs a {
+    text-decoration: inherit;
+    color:inherit;
+}
+
+#logoXs {
+    font-size: 17px;
+    margin-top: 6px;
+    color: #274896;
+}
+
+#headerrow {
+    padding-bottom: 13px;
+    height: 85px;
+}
+
+.bshadow {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.17);
+}
+
+#phone {
+    width: 230px;
+    text-align: left;
+}
+
+#menu {
+    padding: 10px 0;
+    margin: 0;
+}
+
+#basemenu {
+    padding: 10px 0;
+}
+
+#basemenu .menuEl {
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    padding: 0 30px 0 0;
+    color: #0682dc;
+}
+
+#basemenu a:nth-last-of-type(1) .menuEl {
+    padding: 0;
+}
+
+#verticalMenu {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    margin: 1px -25px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+#btRec {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+#btnMenu {
+    padding: 8px 10px;
+    color: #2873bd;
+    font-size: 16px;
+}
+
+.login {
+    color: #2873bd;
+    font-size: 17px;
+    padding: 9px 12px 11px 8px;
+    margin-top: 5px;
+    margin-left: 4px;
+}
+
+#menuSubInf {
+    padding: 0 15px;
+}
+
+#menuSubInf .login {
+    margin-top: 20px;
+}
+
+#headerRowXs {
+    padding: 10px 0;
+}
+
+#btnRecXs {
+    height: 34px;
+}
+
+#toRec {
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 15px;
+}
+
+#toRec #mL {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+
+.bot20 {
+    margin-bottom: 20px;
+}
+
+.pad0 {
+    padding: 0;
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    #basemenu .menuEl {
+        padding: 0 18px 0 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    #basemenu .menuEl {
+        padding: 0 40px 0 0;
+    }
+    }
+
+@media (max-width: 990px) {
+    #basecont {
+        padding: 0 10px;
+    }
+
+    #verticalMenu {
+        margin: 1px -10px;
+    }
+}
+
+.menuEl:hover {
+    opacity: 0.9;
+}
+
+.verticalFlex {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+}
+
+.breadcrumb {
+    margin: 20px auto 0;
+    background: none;
+    padding: 0;
+}
+
+.boxAbs {
+    -webkit-box-shadow: 0 1px 4px #afafaf;
+    box-shadow: 0 1px 4px #afafaf;
+}
